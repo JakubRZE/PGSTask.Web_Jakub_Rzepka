@@ -1,0 +1,12 @@
+﻿@model TaskViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var task in Model.Tasks)
+{
+<p>@task.Description</p>
+}

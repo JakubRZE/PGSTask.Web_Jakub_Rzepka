@@ -47,7 +47,13 @@ namespace PGSTask.Web_Jakub_Rzepka
 
             app.UseStaticFiles();
 
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Task}/{action=Index}/{id?}"
+                    );
+            });
         }
     }
 }

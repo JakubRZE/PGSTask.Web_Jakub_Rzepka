@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGSTask.Web_Jakub_Rzepka", "PGSTask.Web_Jakub_Rzepka\PGSTask.Web_Jakub_Rzepka.csproj", "{4CFFA3D3-072A-440F-B5E3-F36FACDB5CDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGSTask.Web_Jakub_Rzepka", "PGSTask.Web_Jakub_Rzepka\PGSTask.Web_Jakub_Rzepka.csproj", "{4CFFA3D3-072A-440F-B5E3-F36FACDB5CDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
