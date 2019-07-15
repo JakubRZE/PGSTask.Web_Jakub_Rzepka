@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace PGSTask.Web_Jakub_Rzepka.Models
 {
@@ -15,14 +15,15 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
             _appDbContext = appDbContext;
         }
 
+
         public IEnumerable<Task> GetAllTasks()
         {
-            throw new NotImplementedException();
+            return _appDbContext.Tasks;
         }
 
         public Task GetTaskById(int taskId)
         {
-            throw new NotImplementedException();
+            return _appDbContext.Tasks.FirstOrDefault(t => t.Id == taskId);
         }
     }
 }
