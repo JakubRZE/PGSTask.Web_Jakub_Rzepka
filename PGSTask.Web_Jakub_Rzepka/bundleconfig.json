@@ -9,6 +9,7 @@
   {
     "outputFileName": "wwwroot/lib/bootstrap/js/bootstrap.min.js",
     "inputFiles": [
+      "wwwroot/lib/jquery/jquery.js",
       "wwwroot/js/site.js",
       "wwwroot/lib/bootstrap/js/bootstrap.js"
     ],
