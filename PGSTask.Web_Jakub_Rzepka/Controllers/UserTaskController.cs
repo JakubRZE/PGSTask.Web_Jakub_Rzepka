@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PGSTask.Web_Jakub_Rzepka.Models;
 using PGSTask.Web_Jakub_Rzepka.ViewModels;
+using System.Linq.Dynamic;
 
 namespace PGSTask.Web_Jakub_Rzepka.Controllers
 {
@@ -19,9 +20,11 @@ namespace PGSTask.Web_Jakub_Rzepka.Controllers
         }
 
         // GET: Task
-        public ActionResult Index()
+        public ActionResult Index(string column = null, string sortOrder = null, string searchString = null)
         {
-            var tasks = _userTaskRepository.GetAllTasks().OrderBy(t => t.CreatedAt);
+            ViewBag.SortOrder = sortOrder == SortOrder.Desc || sortOrder == null ? SortOrder.Asc: SortOrder.Desc;
+            var tasks = _userTaskRepository.GetAllTasks(column, sortOrder, searchString);
+
             var tasksVM = new UserTaskViewModel()
             {
                 Tasks = tasks.ToList()

@@ -12,6 +12,6 @@
 
         //var r = confirm("Are you sure to delete this task?");
         //if (r == true) $("#" + formId).submit();
-    });
+    //});
 
 });

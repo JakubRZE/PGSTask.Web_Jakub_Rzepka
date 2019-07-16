@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Linq.Dynamic;
 
 namespace PGSTask.Web_Jakub_Rzepka.Models
 {
@@ -28,9 +28,14 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
             _appDbContext.SaveChanges();
         }
 
-        public IEnumerable<UserTask> GetAllTasks()
+        public IEnumerable<UserTask> GetAllTasks(string column = null, string sortOrder = null, string searchString = null)
         {
-            return _appDbContext.Tasks;
+            var query =  _appDbContext.Tasks.AsQueryable();
+
+            if (column != null)
+                query = query.OrderBy(column + " " + sortOrder);
+
+            return query.AsEnumerable();
         }
 
         public UserTask GetTaskById(int taskId)

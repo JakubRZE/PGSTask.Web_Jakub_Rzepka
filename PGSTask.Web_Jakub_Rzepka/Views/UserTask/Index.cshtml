@@ -29,20 +29,27 @@
 </div>
 <div class="row">
     <div class="col-12">
-        <div class="card p-3 mb-1 customCard ">
-            <div class="input-group">
+        <div class="card p-2 mb-1 customCard ">
+            <form  asp-controller="UserTask" asp-action="Index" method="get">
+                <div class="input-group">
 
-                <select class="form-control rounded mr-5 ml-3">
-                    <option>Default select</option>
-                    <option>LOL</option>
-                </select>
+                    @*<select class="form-control rounded mr-1 ml-3" name="sortParm1">
+                        <option>Sort by date</option>
+                        <option>Sory by description</option>
+                    </select>
 
-                <input type="text" class="form-control rounded mr-5" placeholder="Search task...">
+                    <select class="form-control rounded mr-5" name="sortParm2">
+                        <option>Descending</option>
+                        <option>Ascending</option>
+                    </select>*@
 
-                <div class="mr-3">
-                    <button class="btn btn-secondary" type="button">Search</button>
+                    <input type="text" class="form-control rounded mr-5" placeholder="Task description..." name="searchStr">
+
+                    <div class="mr-3">
+                        <button class="btn btn-secondary" type="submit">Search</button>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
 
     </div>
@@ -52,6 +59,18 @@
     <div class="col-12">
         <div class="card">
             <table class="table table-hover bg-light m-0">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <td class="max-width-5 text-center">
+                            @Html.ActionLink("Description", "Index", new { sortOrder = ViewBag.SortOrder, column =  nameof(UserTask.Description) })
+                        </td>
+                        <td class="text-right max-width-04 text-center">
+                            @Html.ActionLink("Created at", "Index", new { sortOrder = ViewBag.SortOrder, column = nameof(UserTask.CreatedAt) })
+                        </td>
+                        <td class="border-left text-center max-width-03">
+                        </td>
+                    </tr>
+                </thead>
                 <tbody>
                     @foreach (var task in Model.Tasks)
                     {
@@ -60,7 +79,7 @@
                                 <input class="w-100 customInput" value="@task.Description" readonly />
                                 @*@Html.DisplayFor(modelItem => task.Description)*@
                             </td>
-                            <td class="text-right text-pale max-width-05">
+                            <td class="text-right text-pale max-width-04">
                                 <span class="border-left pl-1">@Html.DisplayFor(modelItem => task.CreatedAt)</span>
                             </td>
                             <td class="border-left text-center max-width-03">

@@ -6,7 +6,7 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
 {
     public interface IUserTaskRepository
     {
-        IEnumerable<UserTask> GetAllTasks();
+        IEnumerable<UserTask> GetAllTasks(string column = null, string sortOrder = SortOrder.Asc, string searchString = null);
 
         UserTask GetTaskById(int taskId);
 
