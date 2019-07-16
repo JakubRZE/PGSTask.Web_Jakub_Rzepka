@@ -49,10 +49,10 @@
                 <thead class="bg-dark text-light">
                     <tr>
                         <td class="max-width-5 text-center">
-                            @Html.ActionLink("Description", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.Description), searchString = Model.CurrentFilter})
+                            @Html.ActionLink("Description", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.Description), searchString = Model.CurrentFilter}, new { @class = "customLink" })
                         </td>
                         <td class="text-right max-width-04 text-center">
-                            @Html.ActionLink("Created at", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.CreatedAt), searchString = Model.CurrentFilter})
+                            @Html.ActionLink("Created at", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.CreatedAt), searchString = Model.CurrentFilter}, new { @class = "customLink" })
                         </td>
                         <td class="border-left text-center max-width-03">
                         </td>

@@ -30,7 +30,7 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
 
         public IEnumerable<UserTask> GetAllTasks(string column = null, string sortOrder = null, string searchString = null)
         {
-            var query =  _appDbContext.Tasks.AsQueryable();
+            var query =  _appDbContext.Tasks.OrderByDescending(t => t.CreatedAt).AsQueryable();
 
             if (!String.IsNullOrEmpty(searchString))
             {

@@ -45,7 +45,7 @@
 
 .customInput {
     padding: 0;
-    margin:0;
+    margin: 0;
     border: none;
     background-color: transparent;
 }
@@ -58,9 +58,15 @@
     background-color: transparent;
 }
 
-/*.customLink {
-    
-}*/
+.customLink {
+    color: white;
+    text-decoration: none;
+}
+
+    .customLink:hover {
+        color: gray;
+        text-decoration: none;
+    }
 
 .max-width-5 {
     max-width: 453px;
