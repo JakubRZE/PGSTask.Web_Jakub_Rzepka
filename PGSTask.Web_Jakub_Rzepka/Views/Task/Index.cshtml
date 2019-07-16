@@ -1,12 +1,75 @@
 ﻿@model TaskViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Task list";
 }
 
-<h2>Index</h2>
 
-@foreach (var task in Model.Tasks)
-{
-<p>@task.Description</p>
-}
+
+<div class="row text-light mt-4 mb-2 pt-5">
+    <div class="col-12 text-center">
+        <h1>Task List</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12 text-center">
+
+        <div class="input-group p-5">
+            <input type="text" class="form-control w-75 rounded p-4" placeholder="Enter your task...">
+            <div class="w-25 text-right">
+                <button type="button" class="btn btn-warning w-75 font-weight-bold customBtn">Add</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="card p-3 mb-1 customCard ">
+            <div class="input-group">
+
+                <select class="form-control rounded mr-5 ml-3">
+                    <option>Default select</option>
+                    <option>LOL</option>
+                </select>
+
+                <input type="text" class="form-control rounded mr-5" placeholder="Search task...">
+
+                <div class="mr-3">
+                    <button class="btn btn-secondary" type="button">Search</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <table class="table table-hover bg-light m-0">
+                <tbody>
+                    @foreach (var task in Model.Tasks)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => task.Description)
+                            </td>
+                            <td class="text-right text-pale">
+                                <span class="border-left pl-1">@Html.DisplayFor(modelItem => task.CreatedAt)</span>
+                            </td>
+                            <td class="border-left text-center" style="width:10%">
+                                <a asp-action="Edit" asp-route-id="@task.Id" class="mr-2 ml-2">
+                                    <i class="fas fa-edit customEditIcon"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@task.Id" class="mr-2 ml-2">
+                                    <i class="fas fa-trash-alt customBinIcon"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

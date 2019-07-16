@@ -2,16 +2,16 @@
   {
     "outputFileName": "wwwroot/lib/bootstrap/css/bootstrap.min.css",
     "inputFiles": [
-      "wwwroot/css/site.css",
-      "wwwroot/lib/bootstrap/css/bootstrap.css"
+      "wwwroot/lib/bootstrap/css/bootstrap.css",
+      "wwwroot/css/site.css"
     ]
   },
   {
     "outputFileName": "wwwroot/lib/bootstrap/js/bootstrap.min.js",
     "inputFiles": [
       "wwwroot/lib/jquery/jquery.js",
-      "wwwroot/js/site.js",
-      "wwwroot/lib/bootstrap/js/bootstrap.js"
+      "wwwroot/lib/bootstrap/js/bootstrap.js",
+      "wwwroot/js/site.js"
     ],
     "minify": {
       "enabled": true,
