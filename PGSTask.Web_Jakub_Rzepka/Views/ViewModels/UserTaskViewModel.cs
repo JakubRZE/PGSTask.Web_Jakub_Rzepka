@@ -6,8 +6,8 @@ using System.Linq;
 
 namespace PGSTask.Web_Jakub_Rzepka.ViewModels
 {
-    public class TaskViewModel
+    public class UserTaskViewModel
     {
-        public List<Task> Tasks { get; set; }
+        public List<UserTask> Tasks { get; set; }
     }
 }

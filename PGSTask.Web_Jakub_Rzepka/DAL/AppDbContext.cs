@@ -14,6 +14,6 @@ namespace PGSTask.Web_Jakub_Rzepka.DAL
 
     //    }
 
-    //    public DbSet<Task> Tasks { get; set; }
+    //    public DbSet<UserTask> Tasks { get; set; }
     //}
 }

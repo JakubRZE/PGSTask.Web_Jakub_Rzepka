@@ -26,9 +26,9 @@ namespace PGSTask.Web_Jakub_Rzepka
             //services.AddDbContext<AppDbContext>(options =>
             //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddTransient<ITaskRepository, TaskRepository>();
+            //services.AddTransient<IUserTaskRepository, UserTaskRepository>();
 
-            services.AddTransient<ITaskRepository, MockTaskRepository>();
+            services.AddTransient<IUserTaskRepository, MockUserTaskRepository>();
 
 
 
@@ -51,7 +51,7 @@ namespace PGSTask.Web_Jakub_Rzepka
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Task}/{action=Index}/{id?}"
+                    template: "{controller=UserTask}/{action=Index}/{id?}"
                     );
             });
         }

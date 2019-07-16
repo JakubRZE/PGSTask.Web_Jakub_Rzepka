@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace PGSTask.Web_Jakub_Rzepka.Models
 {
-    public interface ITaskRepository
+    public interface IUserTaskRepository
     {
-        IEnumerable<Task> GetAllTasks();
+        IEnumerable<UserTask> GetAllTasks();
 
-        Task GetTaskById(int taskId);
+        UserTask GetTaskById(int taskId);
     }
 }

@@ -6,22 +6,22 @@ using System.Linq;
 
 namespace PGSTask.Web_Jakub_Rzepka.Models
 {
-    //public class TaskRepository : ITaskRepository
+    //public class UserTaskRepository : IUserTaskRepository
     //{
     //    private readonly AppDbContext _appDbContext;
 
-    //    public TaskRepository(AppDbContext appDbContext)
+    //    public UserTaskRepository(AppDbContext appDbContext)
     //    {
     //        _appDbContext = appDbContext;
     //    }
 
 
-    //    public IEnumerable<Task> GetAllTasks()
+    //    public IEnumerable<UserTask> GetAllTasks()
     //    {
     //        return _appDbContext.Tasks;
     //    }
 
-    //    public Task GetTaskById(int taskId)
+    //    public UserTask GetTaskById(int taskId)
     //    {
     //        return _appDbContext.Tasks.FirstOrDefault(t => t.Id == taskId);
     //    }

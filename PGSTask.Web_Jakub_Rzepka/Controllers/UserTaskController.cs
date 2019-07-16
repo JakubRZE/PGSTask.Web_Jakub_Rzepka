@@ -8,21 +8,21 @@ using PGSTask.Web_Jakub_Rzepka.ViewModels;
 
 namespace PGSTask.Web_Jakub_Rzepka.Controllers
 {
-    public class TaskController : Controller
+    public class UserTaskController : Controller
     {
-        private readonly ITaskRepository _taskRepository;
+        private readonly IUserTaskRepository _userTaskRepository;
 
-        public TaskController(ITaskRepository taskRepository)
+        public UserTaskController(IUserTaskRepository userTaskRepository)
         {
-            _taskRepository = taskRepository;
+            _userTaskRepository = userTaskRepository;
         }
 
         // GET: Task
         public ActionResult Index()
         {
-            var tasks = _taskRepository.GetAllTasks().OrderBy(t => t.CreatedAt);
+            var tasks = _userTaskRepository.GetAllTasks().OrderBy(t => t.CreatedAt);
 
-            var tasksVM = new TaskViewModel()
+            var tasksVM = new UserTaskViewModel()
             {
                 Tasks = tasks.ToList()
             };
