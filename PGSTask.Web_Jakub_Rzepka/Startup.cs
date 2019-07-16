@@ -30,7 +30,7 @@ namespace PGSTask.Web_Jakub_Rzepka
             services.AddTransient<IUserTaskRepository, UserTaskRepository>();
 
             services.AddMvc();
-           
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

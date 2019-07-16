@@ -1,4 +1,7 @@
 ﻿@model UserTaskViewModel
+@using X.PagedList.Mvc.Core; //import this so we get our HTML Helper
+@using X.PagedList; //import this so we can cast our list to IPagedList (only necessary because ViewBag is dynamic)
+
 
 @{
     ViewData["Title"] = "Task list";
@@ -28,7 +31,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card p-2 mb-1 customCard ">
-            <form  asp-controller="UserTask" asp-action="Index" method="get">
+            <form asp-controller="UserTask" asp-action="Index" method="get">
                 <div class="input-group">
                     <input type="hidden" name="column" value="@Model.CurrentColumn">
                     <input type="hidden" name="sortOrder" value="@Model.SortOrder">
@@ -49,13 +52,12 @@
                 <thead class="bg-dark text-light">
                     <tr>
                         <td class="max-width-5 text-center">
-                            @Html.ActionLink("Description", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.Description), searchString = Model.CurrentFilter}, new { @class = "customLink" })
+                            @Html.ActionLink("Description", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.Description), searchString = Model.CurrentFilter }, new { @class = "customLink" })
                         </td>
                         <td class="text-right max-width-04 text-center">
-                            @Html.ActionLink("Created at", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.CreatedAt), searchString = Model.CurrentFilter}, new { @class = "customLink" })
+                            @Html.ActionLink("Created at", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.CreatedAt), searchString = Model.CurrentFilter }, new { @class = "customLink" })
                         </td>
-                        <td class="border-left text-center max-width-03">
-                        </td>
+                        <td class="border-left text-center max-width-03"></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,7 +65,7 @@
                     {
                         <tr>
                             <td class="max-width-5">
-                                <input class="w-100 customInput" value="@task.Description" readonly />
+                                <input class="w-100 customInput" value="@task.Description" readonly name="@task.Id"/>
                             </td>
                             <td class="text-right text-pale max-width-04">
                                 <span class="border-left pl-1">@Html.DisplayFor(modelItem => task.CreatedAt)</span>
@@ -73,7 +75,7 @@
                                     <i class="fas fa-edit customEditIcon" name="@task.Id"></i>
                                 </form>
                                 <form asp-controller="UserTask" asp-action="Delete" method="post" class="mr-2 ml-2 d-inline customForm" name="@task.Id">
-                                    <input type="hidden" name="Id" value="@task.Id" readonly/>
+                                    <input type="hidden" name="Id" value="@task.Id" readonly />
                                     <button type="submit" class="plain"><i class="fas fa-trash-alt customBinIcon"></i></button>
                                 </form>
                             </td>
@@ -84,3 +86,6 @@
         </div>
     </div>
 </div>
+
+@Html.PagedListPager((IPagedList)Model.Tasks, page => Url.Action("Index", new { page }))
+

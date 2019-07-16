@@ -3,6 +3,7 @@
     "outputFileName": "wwwroot/lib/bootstrap/css/bootstrap.min.css",
     "inputFiles": [
       "wwwroot/lib/bootstrap/css/bootstrap.css",
+      "wwwroot/css/PagedList.css",
       "wwwroot/css/site.css"
     ]
   },

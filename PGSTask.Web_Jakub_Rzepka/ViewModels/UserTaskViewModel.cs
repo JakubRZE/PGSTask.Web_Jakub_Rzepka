@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using PGSTask.Web_Jakub_Rzepka;
+using X.PagedList;
 
 namespace PGSTask.Web_Jakub_Rzepka.ViewModels
 {
@@ -12,7 +13,7 @@ namespace PGSTask.Web_Jakub_Rzepka.ViewModels
         [Required]
         public string Description { get; set; }
 
-        public List<UserTask> Tasks { get; set; }
+        public IPagedList<UserTask> Tasks { get; set; }
         
         public string SortOrder { get;  set; }
         public string CurrentColumn { get;  set; }

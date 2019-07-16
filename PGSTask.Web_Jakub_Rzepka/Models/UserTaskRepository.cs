@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
+using X.PagedList;
 
 namespace PGSTask.Web_Jakub_Rzepka.Models
 {
@@ -28,7 +29,12 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
             _appDbContext.SaveChanges();
         }
 
-        public IEnumerable<UserTask> GetAllTasks(string column = null, string sortOrder = null, string searchString = null)
+        public void EditTask(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IPagedList<UserTask> GetAllTasks(string column = null, string sortOrder = null, string searchString = null, int? page = null)
         {
             var query =  _appDbContext.Tasks.OrderByDescending(t => t.CreatedAt).AsQueryable();
 
@@ -40,7 +46,8 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
             if (column != null)
                 query = query.OrderBy(column + " " + sortOrder);
 
-            return query.AsEnumerable();
+            var pageNumber = page ?? 1;
+            return query.ToPagedList(pageNumber, 5);
         }
 
         public UserTask GetTaskById(int taskId)

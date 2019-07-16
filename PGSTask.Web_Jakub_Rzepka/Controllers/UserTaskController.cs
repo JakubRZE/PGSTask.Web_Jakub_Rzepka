@@ -20,15 +20,12 @@ namespace PGSTask.Web_Jakub_Rzepka.Controllers
         }
 
         // GET: Task
-        public ActionResult Index(string column = null, string sortOrder = null, string searchString = null)
+        public ActionResult Index( string column = null, string sortOrder = null, string searchString = null, int? page = null)
         {
             var tasksVM = new UserTaskViewModel();
 
             tasksVM.SortOrder = sortOrder;
-            var tasks = _userTaskRepository.GetAllTasks(column, sortOrder, searchString);
-
-            tasksVM.Tasks = tasks.ToList();
-            
+            tasksVM.Tasks = _userTaskRepository.GetAllTasks(column, sortOrder, searchString, page);
 
             tasksVM.CurrentColumn = column;
             tasksVM.CurrentFilter = searchString;
