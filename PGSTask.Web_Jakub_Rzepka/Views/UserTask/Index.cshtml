@@ -56,19 +56,20 @@
                     @foreach (var task in Model.Tasks)
                     {
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => task.Description)
+                            <td class="max-width-5">
+                                <input class="w-100 customInput" value="@task.Description" readonly />
+                                @*@Html.DisplayFor(modelItem => task.Description)*@
                             </td>
-                            <td class="text-right text-pale">
+                            <td class="text-right text-pale max-width-05">
                                 <span class="border-left pl-1">@Html.DisplayFor(modelItem => task.CreatedAt)</span>
                             </td>
-                            <td class="border-left text-center" style="width:10%">
-                                <form asp-controller="UserTask" asp-action="" method="post" class="mr-2 ml-2  d-inline" id="">
-                                    <i class="fas fa-edit customEditIcon"></i>
+                            <td class="border-left text-center max-width-03">
+                                <form asp-controller="UserTask" asp-action="" method="post" class="mr-2 ml-2 d-inline">
+                                    <i class="fas fa-edit customEditIcon" name="@task.Id"></i>
                                 </form>
-                                <form asp-controller="UserTask" asp-action="Delete" method="post" class="mr-2 ml-2  d-inline" id="deleteForm">
+                                <form asp-controller="UserTask" asp-action="Delete" method="post" class="mr-2 ml-2 d-inline customForm" name="@task.Id">
                                     <input type="hidden" name="Id" value="@task.Id" readonly/>
-                                    <i class="fas fa-trash-alt customBinIcon"></i>
+                                    <button type="submit" class="plain"><i class="fas fa-trash-alt customBinIcon"></i></button>
                                 </form>
                             </td>
                         </tr>

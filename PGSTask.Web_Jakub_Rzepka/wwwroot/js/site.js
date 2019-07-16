@@ -2,12 +2,16 @@
 
     $(document).on("click", "#submitBtn", () => {
         if ($("#submitInput").val()) $("#submitForm").submit();
-        else $("#submitInput").effect("highlight", { color: '#ff4207'});
+        else $("#submitInput").effect("highlight", { color: '#ff4207' });
     });
 
-    $(document).on("click", ".customBinIcon", () => {
-       var r = confirm("Are you sure to delete this task?");
-        if (r == true) $("#deleteForm").submit();
+    //debugger;
+    //$(document).on("click", ".customEditIcon", () => {
+    //    var name = $(this).attr('name');
+    //    $(name).hide();
+
+        //var r = confirm("Are you sure to delete this task?");
+        //if (r == true) $("#" + formId).submit();
     });
 
 });
