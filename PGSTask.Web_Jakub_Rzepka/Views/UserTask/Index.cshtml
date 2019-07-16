@@ -13,7 +13,6 @@
 </div>
 <div class="row">
     <div class="col-12 text-center">
-
         <form asp-controller="UserTask" asp-action="Create" method="post" id="submitForm">
             @Html.AntiForgeryToken()
             <div class="input-group p-5">
@@ -24,7 +23,6 @@
                 </div>
             </div>
         </form>
-
     </div>
 </div>
 <div class="row">
@@ -32,26 +30,15 @@
         <div class="card p-2 mb-1 customCard ">
             <form  asp-controller="UserTask" asp-action="Index" method="get">
                 <div class="input-group">
-
-                    @*<select class="form-control rounded mr-1 ml-3" name="sortParm1">
-                        <option>Sort by date</option>
-                        <option>Sory by description</option>
-                    </select>
-
-                    <select class="form-control rounded mr-5" name="sortParm2">
-                        <option>Descending</option>
-                        <option>Ascending</option>
-                    </select>*@
-
-                    <input type="text" class="form-control rounded mr-5" placeholder="Task description..." name="searchStr">
-
+                    <input type="hidden" name="column" value="@Model.CurrentColumn">
+                    <input type="hidden" name="sortOrder" value="@Model.SortOrder">
+                    <input type="text" class="form-control rounded mr-5" placeholder="Task description..." name="searchString" value="@Model.CurrentFilter">
                     <div class="mr-3">
                         <button class="btn btn-secondary" type="submit">Search</button>
                     </div>
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 
@@ -62,10 +49,10 @@
                 <thead class="bg-dark text-light">
                     <tr>
                         <td class="max-width-5 text-center">
-                            @Html.ActionLink("Description", "Index", new { sortOrder = ViewBag.SortOrder, column =  nameof(UserTask.Description) })
+                            @Html.ActionLink("Description", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.Description), searchString = Model.CurrentFilter})
                         </td>
                         <td class="text-right max-width-04 text-center">
-                            @Html.ActionLink("Created at", "Index", new { sortOrder = ViewBag.SortOrder, column = nameof(UserTask.CreatedAt) })
+                            @Html.ActionLink("Created at", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.CreatedAt), searchString = Model.CurrentFilter})
                         </td>
                         <td class="border-left text-center max-width-03">
                         </td>
@@ -77,7 +64,6 @@
                         <tr>
                             <td class="max-width-5">
                                 <input class="w-100 customInput" value="@task.Description" readonly />
-                                @*@Html.DisplayFor(modelItem => task.Description)*@
                             </td>
                             <td class="text-right text-pale max-width-04">
                                 <span class="border-left pl-1">@Html.DisplayFor(modelItem => task.CreatedAt)</span>

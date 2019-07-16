@@ -22,13 +22,16 @@ namespace PGSTask.Web_Jakub_Rzepka.Controllers
         // GET: Task
         public ActionResult Index(string column = null, string sortOrder = null, string searchString = null)
         {
-            ViewBag.SortOrder = sortOrder == SortOrder.Desc || sortOrder == null ? SortOrder.Asc: SortOrder.Desc;
+            var tasksVM = new UserTaskViewModel();
+
+            tasksVM.SortOrder = sortOrder;
             var tasks = _userTaskRepository.GetAllTasks(column, sortOrder, searchString);
 
-            var tasksVM = new UserTaskViewModel()
-            {
-                Tasks = tasks.ToList()
-            };
+            tasksVM.Tasks = tasks.ToList();
+            
+
+            tasksVM.CurrentColumn = column;
+            tasksVM.CurrentFilter = searchString;
 
             return View(tasksVM);
         }

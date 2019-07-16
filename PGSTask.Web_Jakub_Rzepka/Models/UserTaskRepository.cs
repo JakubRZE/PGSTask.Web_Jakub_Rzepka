@@ -32,6 +32,11 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
         {
             var query =  _appDbContext.Tasks.AsQueryable();
 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                query = query.Where(s => s.Description.ToLower().Contains(searchString.ToLower()) || s.CreatedAt.ToString().Contains(searchString));            
+            }
+
             if (column != null)
                 query = query.OrderBy(column + " " + sortOrder);
 
