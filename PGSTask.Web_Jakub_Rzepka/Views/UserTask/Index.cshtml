@@ -14,12 +14,16 @@
 <div class="row">
     <div class="col-12 text-center">
 
-        <div class="input-group p-5">
-            <input type="text" class="form-control w-75 rounded p-4" placeholder="Enter your task...">
-            <div class="w-25 text-right">
-                <button type="button" class="btn btn-warning w-75 font-weight-bold customBtn">Add</button>
+        <form asp-controller="UserTask" asp-action="Create" method="post" id="submitForm">
+            @Html.AntiForgeryToken()
+            <div class="input-group p-5">
+                <input type="text" class="form-control w-75 rounded p-4" placeholder="Enter your task..." name="Description" id="submitInput">
+                <span asp-validation-for="Description" class="text-danger"></span>
+                <div class="w-25 text-right">
+                    <button type="button" class="btn btn-warning w-75 font-weight-bold customBtn" id="submitBtn">Add</button>
+                </div>
             </div>
-        </div>
+        </form>
 
     </div>
 </div>

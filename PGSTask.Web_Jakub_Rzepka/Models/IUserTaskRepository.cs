@@ -9,5 +9,7 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
         IEnumerable<UserTask> GetAllTasks();
 
         UserTask GetTaskById(int taskId);
+
+        void AddTask(UserTask userTask);
     }
 }

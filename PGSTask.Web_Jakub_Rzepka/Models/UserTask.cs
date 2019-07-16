@@ -7,13 +7,13 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
 {
     public class UserTask
     {
-        //[Key]
+        [Key]
         public int Id { get; set; }
 
-        //[Required]
+        [Required]
         public string Description { get; set; }
 
-        //[DataType(DataType.Date)]
+        [DataType(DataType.Date)]
         public DateTime CreatedAt { get; set; }
 
         public bool IsDone { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PGSTask.Web_Jakub_Rzepka.Models;
@@ -21,7 +22,6 @@ namespace PGSTask.Web_Jakub_Rzepka.Controllers
         public ActionResult Index()
         {
             var tasks = _userTaskRepository.GetAllTasks().OrderBy(t => t.CreatedAt);
-
             var tasksVM = new UserTaskViewModel()
             {
                 Tasks = tasks.ToList()
@@ -30,33 +30,23 @@ namespace PGSTask.Web_Jakub_Rzepka.Controllers
             return View(tasksVM);
         }
 
-        // GET: Task/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Task/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
 
         // POST: Task/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Create(
+             [Bind("Description")] UserTaskViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
+                UserTask newTask = new UserTask
+                {
+                    Description = model.Description,
+                };
+                _userTaskRepository.AddTask(newTask);
+                return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         // GET: Task/Edit/5
@@ -80,12 +70,6 @@ namespace PGSTask.Web_Jakub_Rzepka.Controllers
             {
                 return View();
             }
-        }
-
-        // GET: Task/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
         }
 
         // POST: Task/Delete/5
