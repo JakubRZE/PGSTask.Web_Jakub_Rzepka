@@ -75,18 +75,10 @@ namespace PGSTask.Web_Jakub_Rzepka.Controllers
         // POST: Task/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public IActionResult Delete(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _userTaskRepository.DeleteTask(id);
+            return RedirectToAction("Index");
         }
     }
 }

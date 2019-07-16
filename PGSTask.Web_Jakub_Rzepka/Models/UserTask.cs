@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace PGSTask.Web_Jakub_Rzepka.Models
@@ -13,7 +14,8 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
         [Required]
         public string Description { get; set; }
 
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy HH:mm}")]
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime CreatedAt { get; set; }
 
         public bool IsDone { get; set; }

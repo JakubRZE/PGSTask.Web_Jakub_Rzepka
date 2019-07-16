@@ -20,6 +20,7 @@ padding: 12px
 }
     .customEditIcon:hover {
         color: #019201;
+        cursor: pointer
     }
 
 .customBinIcon {
@@ -28,6 +29,7 @@ padding: 12px
 
     .customBinIcon:hover {
         color: #a91b41;
+        cursor: pointer
     }
 
 .footer {

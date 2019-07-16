@@ -63,12 +63,13 @@
                                 <span class="border-left pl-1">@Html.DisplayFor(modelItem => task.CreatedAt)</span>
                             </td>
                             <td class="border-left text-center" style="width:10%">
-                                <a asp-action="Edit" asp-route-id="@task.Id" class="mr-2 ml-2">
+                                <form asp-controller="UserTask" asp-action="" method="post" class="mr-2 ml-2  d-inline" id="">
                                     <i class="fas fa-edit customEditIcon"></i>
-                                </a>
-                                <a asp-action="Delete" asp-route-id="@task.Id" class="mr-2 ml-2">
+                                </form>
+                                <form asp-controller="UserTask" asp-action="Delete" method="post" class="mr-2 ml-2  d-inline" id="deleteForm">
+                                    <input type="hidden" name="Id" value="@task.Id" readonly/>
                                     <i class="fas fa-trash-alt customBinIcon"></i>
-                                </a>
+                                </form>
                             </td>
                         </tr>
                     }

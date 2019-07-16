@@ -25,7 +25,8 @@ namespace PGSTask.Web_Jakub_Rzepka.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAddOrUpdate();
 
                     b.Property<string>("Description")
                         .IsRequired();

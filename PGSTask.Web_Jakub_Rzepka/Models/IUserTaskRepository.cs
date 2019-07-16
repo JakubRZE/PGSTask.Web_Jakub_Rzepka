@@ -11,5 +11,7 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
         UserTask GetTaskById(int taskId);
 
         void AddTask(UserTask userTask);
+
+        void DeleteTask(int id);
     }
 }

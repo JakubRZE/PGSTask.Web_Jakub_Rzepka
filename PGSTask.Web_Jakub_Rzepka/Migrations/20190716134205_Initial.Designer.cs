@@ -10,7 +10,7 @@ using PGSTask.Web_Jakub_Rzepka.DAL;
 namespace PGSTask.Web_Jakub_Rzepka.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190716110449_Initial")]
+    [Migration("20190716134205_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,8 @@ namespace PGSTask.Web_Jakub_Rzepka.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreatedAt");
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAddOrUpdate();
 
                     b.Property<string>("Description")
                         .IsRequired();

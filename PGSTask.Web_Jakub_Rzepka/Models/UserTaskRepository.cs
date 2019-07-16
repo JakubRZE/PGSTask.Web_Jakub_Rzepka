@@ -21,6 +21,13 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
             _appDbContext.SaveChanges();
         }
 
+        public void DeleteTask(int id)
+        {
+            UserTask task = _appDbContext.Tasks.Find(id);
+            _appDbContext.Tasks.Remove(task);
+            _appDbContext.SaveChanges();
+        }
+
         public IEnumerable<UserTask> GetAllTasks()
         {
             return _appDbContext.Tasks;
