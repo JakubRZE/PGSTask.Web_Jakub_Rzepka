@@ -12,7 +12,8 @@ namespace PGSTask.Web_Jakub_Rzepka.ViewModels
 
         [Required]
         public string Description { get; set; }
-        
+
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy HH:mm}")]
         public DateTime CreatedAt { get; set; }
     }
 }
