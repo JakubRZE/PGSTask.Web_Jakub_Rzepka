@@ -1,11 +1,13 @@
 ﻿using PGSTask.Web_Jakub_Rzepka.DAL;
+using PGSTask.Web_Jakub_Rzepka.Models;
+using PGSTask.Web_Jakub_Rzepka.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
 using X.PagedList;
 
-namespace PGSTask.Web_Jakub_Rzepka.Models
+namespace PGSTask.Web_Jakub_Rzepka.Repositories
 {
     public class UserTaskRepository : IUserTaskRepository
     {
@@ -16,9 +18,12 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
             _appDbContext = appDbContext;
         }
 
-        public void AddTask(UserTask userTask)
+        public void AddTask(CreateTaskVM userTask)
         {
-            _appDbContext.Tasks.Add(userTask);
+            _appDbContext.Tasks.Add(new UserTask
+            {
+                Description = userTask.Description,
+            });
             _appDbContext.SaveChanges();
         }
 
@@ -37,9 +42,14 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
             _appDbContext.SaveChanges();
         }
 
-        public IPagedList<UserTask> GetAllTasks(string column = null, string sortOrder = null, string searchString = null, int? page = null)
+        public IPagedList<UserTaskVM> GetAllTasks(string column = null, string sortOrder = null, string searchString = null, int? page = null)
         {
-            var query =  _appDbContext.Tasks.OrderByDescending(t => t.CreatedAt).AsQueryable();
+            var query =  _appDbContext.Tasks.Select(x => new UserTaskVM
+            {
+                CreatedAt = x.CreatedAt,
+                Description = x.Description,
+                Id = x.Id
+            }).OrderByDescending(t => t.CreatedAt).AsQueryable();
 
             if (!String.IsNullOrEmpty(searchString))
             {

@@ -10,7 +10,7 @@ using PGSTask.Web_Jakub_Rzepka.DAL;
 namespace PGSTask.Web_Jakub_Rzepka.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190717125234_Initial")]
+    [Migration("20190717140009_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,21 +33,19 @@ namespace PGSTask.Web_Jakub_Rzepka.Migrations
                     b.Property<string>("Description")
                         .IsRequired();
 
-                    b.Property<bool>("IsDone");
-
                     b.HasKey("Id");
 
                     b.ToTable("Tasks");
 
                     b.HasData(
-                        new { Id = 1, CreatedAt = new DateTime(2019, 7, 17, 14, 52, 34, 527, DateTimeKind.Local), Description = "Test task 3463", IsDone = false },
-                        new { Id = 2, CreatedAt = new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), Description = "Test task 3456", IsDone = false },
-                        new { Id = 3, CreatedAt = new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), Description = "Test task 2345", IsDone = false },
-                        new { Id = 4, CreatedAt = new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), Description = "Test task 3465", IsDone = false },
-                        new { Id = 5, CreatedAt = new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), Description = "Test task 4566", IsDone = false },
-                        new { Id = 6, CreatedAt = new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), Description = "Test task 3456", IsDone = false },
-                        new { Id = 7, CreatedAt = new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), Description = "Test task 2456", IsDone = false },
-                        new { Id = 8, CreatedAt = new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), Description = "Test task 1356", IsDone = false }
+                        new { Id = 1, CreatedAt = new DateTime(2019, 7, 17, 16, 0, 8, 877, DateTimeKind.Local), Description = "Test task 3463" },
+                        new { Id = 2, CreatedAt = new DateTime(2019, 7, 17, 16, 0, 8, 880, DateTimeKind.Local), Description = "Test task 3456" },
+                        new { Id = 3, CreatedAt = new DateTime(2019, 7, 17, 16, 0, 8, 880, DateTimeKind.Local), Description = "Test task 2345" },
+                        new { Id = 4, CreatedAt = new DateTime(2019, 7, 17, 16, 0, 8, 880, DateTimeKind.Local), Description = "Test task 3465" },
+                        new { Id = 5, CreatedAt = new DateTime(2019, 7, 17, 16, 0, 8, 880, DateTimeKind.Local), Description = "Test task 4566" },
+                        new { Id = 6, CreatedAt = new DateTime(2019, 7, 17, 16, 0, 8, 880, DateTimeKind.Local), Description = "Test task 3456" },
+                        new { Id = 7, CreatedAt = new DateTime(2019, 7, 17, 16, 0, 8, 880, DateTimeKind.Local), Description = "Test task 2456" },
+                        new { Id = 8, CreatedAt = new DateTime(2019, 7, 17, 16, 0, 8, 880, DateTimeKind.Local), Description = "Test task 1356" }
                     );
                 });
 #pragma warning restore 612, 618

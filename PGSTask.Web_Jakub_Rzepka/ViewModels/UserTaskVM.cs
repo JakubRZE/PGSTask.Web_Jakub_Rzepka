@@ -4,18 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
-namespace PGSTask.Web_Jakub_Rzepka.Models
+namespace PGSTask.Web_Jakub_Rzepka.ViewModels
 {
-    public class UserTask
+    public class UserTaskVM
     {
-        [Key]
         public int Id { get; set; }
 
         [Required]
         public string Description { get; set; }
-
-        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy HH:mm}")]
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        
         public DateTime CreatedAt { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PGSTask.Web_Jakub_Rzepka.DAL;
 using PGSTask.Web_Jakub_Rzepka.Models;
-
+using PGSTask.Web_Jakub_Rzepka.Repositories;
 
 namespace PGSTask.Web_Jakub_Rzepka
 {

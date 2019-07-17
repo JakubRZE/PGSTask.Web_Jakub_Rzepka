@@ -8,12 +8,12 @@ using X.PagedList;
 
 namespace PGSTask.Web_Jakub_Rzepka.ViewModels
 {
-    public class UserTaskViewModel
+    public class UserTasksVM
     {
         [Required]
         public string Description { get; set; }
 
-        public IPagedList<UserTask> Tasks { get; set; }
+        public IPagedList<UserTaskVM> Tasks { get; set; }
         
         public string SortOrder { get;  set; }
         public string CurrentColumn { get;  set; }
