@@ -1,6 +1,6 @@
 # PGSTask.Web_Jakub_Rzepka
 ASP.NET Core 2.1 application
-<br />
+<br /><br />
 
 Aplikacja pozwalająca użytkownikowi na tworzenie prostej listy zadań. Każde zadanie musi posiadać opis.
 Zadania dodane do listy mogą zostać edytowane (ikonka edycji -> wpisanie docelowej wartości -> zatwierdzenie zmian zieloną ikonką),
@@ -10,7 +10,7 @@ Lista zadań wyposażona jest w paginację, sortowanie według kolumn ( poprzez 
 oraz filtrowanie poprzez wprowadzene pożadanej watosci do okienka wyszukiwania.
 
 Wprowadzone wartości są sprawdzane po strownie klienta i servera pod wzgledem poprawnosci(opis zadania nie może być pusty).
-
+<br />
 <h4>Aplikacja jest możliwa do uruchomienia poprzez Visual Studio,<br />
 lub znajduje się na serwerze Azure pod adresem:
 
