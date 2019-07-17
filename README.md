@@ -9,7 +9,7 @@ lub usuniętę (ikonka kosza).
 Lista zadań wyposażona jest w paginację, sortowanie według kolumn ( poprzez kliknięcie - Description lub Created_at w table header), 
 oraz filtrowanie poprzez wprowadzene pożadanej watosci do okienka wyszukiwania.
 
-Wprowadzone wartości sprawdzane pod po strownie klienta i servera pod wzgledem poprawnosci(opis zadania nie może być pusty).
+Wprowadzone wartości są sprawdzane po strownie klienta i servera pod wzgledem poprawnosci(opis zadania nie może być pusty).
 
 <h4>Aplikacja jest możliwa do uruchomienia poprzez Visual Studio,<br />
 lub znajduje się na serwerze Azure pod adresem:
