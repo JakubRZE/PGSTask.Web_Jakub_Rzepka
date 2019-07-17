@@ -29,9 +29,12 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
             _appDbContext.SaveChanges();
         }
 
-        public void EditTask(int id)
+        public void EditTask(int id, string description)
         {
-            throw new NotImplementedException();
+            UserTask task = _appDbContext.Tasks.Find(id);
+            task.Description = description;
+            _appDbContext.Update(task);
+            _appDbContext.SaveChanges();
         }
 
         public IPagedList<UserTask> GetAllTasks(string column = null, string sortOrder = null, string searchString = null, int? page = null)
@@ -40,7 +43,7 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                query = query.Where(s => s.Description.ToLower().Contains(searchString.ToLower()) || s.CreatedAt.ToString().Contains(searchString));            
+                query = query.Where(s => s.Description.ToLower().Contains(searchString.ToLower()));            
             }
 
             if (column != null)
@@ -48,11 +51,6 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
 
             var pageNumber = page ?? 1;
             return query.ToPagedList(pageNumber, 5);
-        }
-
-        public UserTask GetTaskById(int taskId)
-        {
-            return _appDbContext.Tasks.FirstOrDefault(t => t.Id == taskId);
         }
 
     }

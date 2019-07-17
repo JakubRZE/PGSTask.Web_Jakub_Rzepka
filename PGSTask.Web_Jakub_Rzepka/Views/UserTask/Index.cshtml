@@ -1,6 +1,6 @@
 ﻿@model UserTaskViewModel
-@using X.PagedList.Mvc.Core; //import this so we get our HTML Helper
-@using X.PagedList; //import this so we can cast our list to IPagedList (only necessary because ViewBag is dynamic)
+@using X.PagedList.Mvc.Core; 
+@using X.PagedList; 
 
 
 @{
@@ -54,10 +54,10 @@
                         <td class="max-width-5 text-center">
                             @Html.ActionLink("Description", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.Description), searchString = Model.CurrentFilter }, new { @class = "customLink" })
                         </td>
-                        <td class="text-right max-width-04 text-center">
+                        <td class="text-right max-width-03 text-right pr-4">
                             @Html.ActionLink("Created at", "Index", new { sortOrder = Model.GetInverseSortOrder(), column = nameof(UserTask.CreatedAt), searchString = Model.CurrentFilter }, new { @class = "customLink" })
                         </td>
-                        <td class="border-left text-center max-width-03"></td>
+                        <td class="border-left text-center max-width-02"></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -65,15 +65,14 @@
                     {
                         <tr>
                             <td class="max-width-5">
-                                <input class="w-100 customInput" value="@task.Description" readonly name="@task.Id"/>
+                                <input class="w-100 customInput" value="@task.Description" readonly name="@task.Id" />
                             </td>
-                            <td class="text-right text-pale max-width-04">
+                            <td class="text-right text-pale max-width-03">
                                 <span class="border-left pl-1">@Html.DisplayFor(modelItem => task.CreatedAt)</span>
                             </td>
-                            <td class="border-left text-center max-width-03">
-                                <form asp-controller="UserTask" asp-action="" method="post" class="mr-2 ml-2 d-inline">
+                            <td class="border-left text-center max-width-02">
                                     <i class="fas fa-edit customEditIcon" name="@task.Id"></i>
-                                </form>
+                                    <i class="fas fa-check-circle customDoneIcon" id="@task.Id" style="display:none;"></i>
                                 <form asp-controller="UserTask" asp-action="Delete" method="post" class="mr-2 ml-2 d-inline customForm" name="@task.Id">
                                     <input type="hidden" name="Id" value="@task.Id" readonly />
                                     <button type="submit" class="plain"><i class="fas fa-trash-alt customBinIcon"></i></button>

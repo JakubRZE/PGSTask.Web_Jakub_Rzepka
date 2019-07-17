@@ -13,6 +13,6 @@ namespace PGSTask.Web_Jakub_Rzepka.Models
 
         void DeleteTask(int id);
 
-        void EditTask(int id);
+        void EditTask(int id, string description);
     }
 }

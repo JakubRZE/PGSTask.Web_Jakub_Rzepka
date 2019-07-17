@@ -20,7 +20,7 @@ namespace PGSTask.Web_Jakub_Rzepka.Controllers
         }
 
         // GET: Task
-        public ActionResult Index( string column = null, string sortOrder = null, string searchString = null, int? page = null)
+        public ActionResult Index(string column = null, string sortOrder = null, string searchString = null, int? page = null)
         {
             var tasksVM = new UserTaskViewModel();
 
@@ -52,27 +52,18 @@ namespace PGSTask.Web_Jakub_Rzepka.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: Task/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
         // POST: Task/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public JsonResult Edit(int id, string description)
         {
-            try
+            if (!String.IsNullOrEmpty(description))
             {
-                // TODO: Add update logic here
+                _userTaskRepository.EditTask(id, description);
 
-                return RedirectToAction(nameof(Index));
+                return Json(new { success = true, responseText = id });
             }
-            catch
-            {
-                return View();
-            }
+            return Json(new { success = false, responseText = id });
         }
 
         // POST: Task/Delete/5
