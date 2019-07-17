@@ -22,6 +22,21 @@ namespace PGSTask.Web_Jakub_Rzepka.Migrations
                 {
                     table.PrimaryKey("PK_Tasks", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "Id", "CreatedAt", "Description", "IsDone" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2019, 7, 17, 14, 52, 34, 527, DateTimeKind.Local), "Test task 3463", false },
+                    { 2, new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), "Test task 3456", false },
+                    { 3, new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), "Test task 2345", false },
+                    { 4, new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), "Test task 3465", false },
+                    { 5, new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), "Test task 4566", false },
+                    { 6, new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), "Test task 3456", false },
+                    { 7, new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), "Test task 2456", false },
+                    { 8, new DateTime(2019, 7, 17, 14, 52, 34, 530, DateTimeKind.Local), "Test task 1356", false }
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

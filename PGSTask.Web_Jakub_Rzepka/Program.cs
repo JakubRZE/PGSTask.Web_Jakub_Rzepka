@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PGSTask.Web_Jakub_Rzepka.DAL;
+using PGSTask.Web_Jakub_Rzepka.Models;
 
 namespace PGSTask.Web_Jakub_Rzepka
 {
