@@ -11,7 +11,7 @@ oraz filtrowanie poprzez wprowadzene pożadanej watosci do okienka wyszukiwania.
 
 Wprowadzone wartości są sprawdzane po strownie klienta i servera pod wzgledem poprawnosci(opis zadania nie może być pusty).
 <br />
-<h4>Aplikacja jest możliwa do uruchomienia poprzez Visual Studio, </h4><br />
+<h4>Aplikacja jest możliwa do uruchomienia poprzez Visual Studio,</h4>
 po uruchomieniu programu tworzona jest baza danych LocalDb oraz wywoływany jest Seeder bazy.
   
 <h4>Aplikacja znajduje się ronież na serwerze Azure pod adresem:<br />
