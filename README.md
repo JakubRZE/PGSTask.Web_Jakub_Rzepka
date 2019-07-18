@@ -14,7 +14,7 @@ Wprowadzone wartości są sprawdzane po strownie klienta i servera pod wzgledem 
 <h4>Aplikacja jest możliwa do uruchomienia poprzez Visual Studio,</h4>
 po uruchomieniu programu tworzona jest baza danych LocalDb oraz wywoływany jest Seeder bazy.
   
-<h4>Aplikacja znajduje się ronież na serwerze Azure pod adresem:<br />
+<h4>Aplikacja znajduje się również na serwerze Azure pod adresem:<br />
 https://usertasklist.azurewebsites.net</h4>
 
 
