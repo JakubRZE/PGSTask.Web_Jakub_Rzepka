@@ -1,4 +1,4 @@
-# PGSTask.Web_Jakub_Rzepka
+# Task.WebApp
 ASP.NET Core 2.1 application
 <br /><br />
 
